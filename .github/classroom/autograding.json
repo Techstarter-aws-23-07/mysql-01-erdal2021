@@ -1,0 +1,178 @@
+{
+  "repo": "test-23-07/mysql",
+  "introduction": "Eure Aufgabe ist es, ein Bash Script namens __install.sh__ zu schreiben (und zu committen) um __mySQL__ auf einem __Ubuntu__ System zu installieren und eine Datenbank namens __starchaser__ einzurichten (User/Passwort für mysql: __root__ und __root__) für einen neuen mySQL Benutzer namens __Hans__, mit dem Passwort __Dampfmaschine4711__  \n Jede Zeile des Codes in der install.sh sollte gut kommentiert sein und erklären, was sie tut. Commit messages sollten selbsterklärend sein und exakt beschreiben, was Ihr getan habt (gerne auf Englisch).",
+  "logo_url": "https://mysql.tutorials24x7.com/uploads/2020-06-05/banner/tutorials24x7-install-mysql-8-on-ubuntu-20-04-lts-banner.jpg",
+  "timeframe": "60 Minuten (Viel Erfolg!)",
+  "tests": [
+    {
+      "specs": {
+        "title": "Erstelle eine Script Datei namens install.sh"
+      },
+      "name": "checking for install.sh",
+      "feedback": "install.sh could not be found",
+      "urls": [
+        "https://wiki.ubuntuusers.de/Shell/Bash-Skripting-Guide_f%C3%BCr_Anf%C3%A4nger/"
+      ],
+      "keywords": [
+        "bash script",
+        "linux",
+        "ubuntu",
+        "create"
+      ],
+      "type": "",
+      "run": "sudo ls -l install.sh",
+      "file": "",
+      "output": "",
+      "comparison": "",
+      "points": 5
+    },
+    {
+      "specs": {
+        "title": "Sorge dafür, dass das Bash-Script den korrekten Shebang enthält"
+      },
+      "name": "checking for shebang",
+      "feedback": "shebang could not be found in install.sh",
+      "urls": [
+        "https://wiki.ubuntuusers.de/Shebang_f%C3%BCr_Shellskripte/"
+      ],
+      "keywords": [
+        "bash",
+        "shebang",
+        "linux"
+      ],
+      "type": "",
+      "run": "grep -q '^#!/bin/bash' install.sh",
+      "file": "",
+      "output": "",
+      "comparison": "",
+      "points": 5
+    },
+    {
+      "specs": {
+        "title": "MySQL Server Paket installieren unter Ubuntu"
+      },
+      "name": "checking for mysql-server",
+      "feedback": "mysql-server could not be found",
+      "urls": [
+        "https://wiki.ubuntuusers.de/MySQL/"
+      ],
+      "keywords": [
+        "ubuntu",
+        "install",
+        "mysql-server"
+      ],
+      "type": "",
+      "run": "dpkg -l | grep mysql-server",
+      "file": "",
+      "output": "",
+      "comparison": "",
+      "timeout": 120,
+      "points": 5
+    },
+    {
+      "specs": {
+        "title": "Stelle in Deinem Script sicher, dass der mysql service läuft"
+      },
+      "name": "checking mysql daemon status",
+      "feedback": "mysql does not seem to be running",
+      "urls": [
+        "https://vitux.com/how-to-start-stop-or-restart-services-in-ubuntu/",
+        "https://www.digitalocean.com/community/tutorials/how-to-use-systemctl-to-manage-systemd-services-and-units",
+        "https://itsfoss.com/start-stop-restart-services-linux/",
+        "https://medium.com/@samunyi90/how-to-enable-and-disable-mysql-service-on-ubuntu-20-04-66bb4dc29b04"
+      ],
+      "keywords": [
+        "mysql",
+        "ubuntu",
+        "start",
+        "enable",
+        "service"
+      ],
+      "type": "",
+      "run": "sudo bash install.sh ; systemctl is-active mysql",
+      "file": "",
+      "output": "",
+      "comparison": "",
+      "timeout": 120,
+      "points": 5
+    },
+    {
+      "specs": {
+        "title": "Richte einen mySQL-Benutzer namens Hans ein, mit dem Passwort Dampfmaschine4711"
+      },
+      "name": "checking mysql user/password",
+      "feedback": "Your mysql user/password seems incorrect",
+      "urls": [
+        "https://gridscale.io/community/tutorials/mysql-benutzer-rechte-zuweisen/",
+        "https://linuxize.com/post/how-to-manage-mysql-databases-and-users-from-the-command-line/",
+        "https://www.digitalocean.com/community/tutorials/how-to-create-a-new-user-and-grant-permissions-in-mysql",
+        "https://www.interserver.net/tips/kb/manage-mysql-users-command-line/",
+        "https://www.a2hosting.com/kb/developer-corner/mysql/managing-mysql-databases-and-users-from-the-command-line/"
+      ],
+      "keywords": [
+        "create user",
+        "mysql",
+        "password"
+      ],
+      "type": "",
+      "run": "sudo mysql -u root -proot -e \"SELECT user, host FROM mysql.user WHERE user='Hans' AND host='localhost';\"",
+      "file": "",
+      "output": "",
+      "comparison": "",
+      "timeout": 120,
+      "points": 5
+    },
+    {
+      "specs": {
+        "title": "Erstelle eine mySQL Datenbank namens starchaser"
+      },
+      "name": "looking for mysql db named starchaser",
+      "feedback": "Could not find mySQL DB named starchaser",
+      "urls": [
+        "https://wiki.ubuntuusers.de/MySQL/",
+        "https://blog.devart.com/mysql-command-line-client.html",
+        "https://dev.mysql.com/doc/refman/8.0/en/mysql.html"
+      ],
+      "keywords": [
+        "create",
+        "database",
+        "mysql",
+        "ubuntu",
+        "SQL",
+        "W3C"
+      ],
+      "type": "",
+      "run": "sudo mysql -u root -proot -e \"SHOW DATABASES LIKE 'starchaser';\"",
+      "file": "",
+      "output": "",
+      "comparison": "",
+      "timeout": 120,
+      "points": 5
+    },
+    {
+      "specs": {
+        "title": "Gebe dem neuen mySQL-Benutzer Privilegien (Rechte) für die starchaser Datenbank"
+      },
+      "name": "looking for mysql privileges for user/database (starchaser)",
+      "feedback": "starchaser does not seem accessible to user Hans",
+      "urls": [
+        "https://wiki.ubuntuusers.de/MySQL/",
+        "https://www.hostinger.com/tutorials/mysql/how-create-mysql-user-and-grant-permissions-command-line"
+      ],
+      "keywords": [
+        "user",
+        "privileges",
+        "database",
+        "mysql",
+        "ubuntu"
+      ],
+      "type": "",
+      "run": "sudo mysql -u Hans -pDampfmaschine4711 -e \"USE starchaser;\" >/dev/null 2>&1",
+      "file": "",
+      "output": "",
+      "comparison": "",
+      "timeout": 120,
+      "points": 5
+    }
+  ]
+}
