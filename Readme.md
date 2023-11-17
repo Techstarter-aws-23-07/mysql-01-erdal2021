@@ -2,7 +2,7 @@
 
 ---
 # Aufgabe
-[![GitHub Classroom Workflow](https://github.com/test-23-07/mysql/actions/workflows/classroom.yml/badge.svg)](https://github.com/test-23-07/mysql/actions/workflows/classroom.yml) [![Points badge](../../blob/badges/.github/badges/points.svg)](../../actions) 
+[![GitHub Classroom Workflow](https://github.com/Techstarter-aws-23-07/mysql-01-erdal2021/actions/workflows/classroom.yml/badge.svg)](https://github.com/Techstarter-aws-23-07/mysql-01-erdal2021/actions/workflows/classroom.yml) [![Points badge](../../blob/badges/.github/badges/points.svg)](../../actions) 
 
 Eure Aufgabe ist es, ein Bash Script namens __install.sh__ zu schreiben (und zu committen) um __mySQL__ auf einem __Ubuntu__ System zu installieren und eine Datenbank namens __starchaser__ einzurichten (User/Passwort für mysql: __root__ und __root__) für einen neuen mySQL Benutzer namens __Hans__, mit dem Passwort __Dampfmaschine4711__  
  Jede Zeile des Codes in der install.sh sollte gut kommentiert sein und erklären, was sie tut. Commit messages sollten selbsterklärend sein und exakt beschreiben, was Ihr getan habt (gerne auf Englisch).
