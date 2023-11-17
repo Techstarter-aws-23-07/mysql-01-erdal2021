@@ -37,11 +37,3 @@ def main():
 # Prüfe, ob die main-Funktion direkt aufgerufen wird (nicht als Modul importiert)
 if __name__ == "__main__":
     main()
-# 4. Git-Commands zum Commiten:
-# bash
-# Copy code
-# # Füge die Dateien zum Commit hinzu
-# git add install.sh requirements.txt main.py
-
-# # Führe den Commit durch und füge eine aussagekräftige Commit-Nachricht hinzu
-# git commit -m "Initial commit: Setup MySQL installation, database creation, Python main script, and requirements"
