@@ -10,7 +10,6 @@ sudo service mysql start
 # Setze das MySQL-Root-Passwort auf 'root'
 # sudo mysql -e "ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root'; FLUSH PRIVILEGES;"
 
-
 # Einloggen in MySQL als Root-Benutzer
 sudo mysql -u root -p
 
